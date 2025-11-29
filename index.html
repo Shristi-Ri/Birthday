@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Happy Birthday My Love! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat center bottom;
+            animation: wave 10s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .hero-content {
+            z-index: 1;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .birthday-emoji {
+            font-size: 5em;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Scroll Button */
+        .scroll-btn {
+            position: absolute;
+            bottom: 30px;
+            background: white;
+            color: #667eea;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .scroll-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Message Section */
+        .message-section {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .message-section h2 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+
+        .message-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Memories Section */
+        .memories-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 80px 20px;
+        }
+
+        .memories-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .memories-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .memory-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .memory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .memory-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .memory-image img,
+        .memory-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .memory-card:hover .memory-image img,
+        .memory-card:hover .memory-image video {
+            transform: scale(1.1);
+        }
+
+        .memory-image .placeholder-icon {
+            font-size: 4em;
+        }
+
+        .memory-image video {
+            cursor: pointer;
+        }
+
+        .memory-content {
+            padding: 25px;
+        }
+
+        .memory-content h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .memory-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .memory-date {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .video-section h2 {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .video-section .video-subtitle {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+        }
+
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            outline: none;
+            max-height: 80vh;
+        }
+
+        .video-description {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* Final Love Message Section */
+        .final-message-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-message-section::before {
+            content: '❤️';
+            position: absolute;
+            font-size: 20em;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .final-message-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-message-content h2 {
+            font-size: 2.8em;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .final-message-content .love-text {
+            font-size: 1.3em;
+            line-height: 2;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .final-message-content .signature {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            margin-top: 40px;
+            font-style: italic;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-hearts span {
+            position: absolute;
+            bottom: -50px;
+            font-size: 2em;
+            animation: float-up 8s linear infinite;
+            opacity: 0.6;
+        }
+
+        .floating-hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .floating-hearts span:nth-child(2) { left: 25%; animation-delay: 2s; }
+        .floating-hearts span:nth-child(3) { left: 40%; animation-delay: 4s; }
+        .floating-hearts span:nth-child(4) { left: 55%; animation-delay: 1s; }
+        .floating-hearts span:nth-child(5) { left: 70%; animation-delay: 3s; }
+        .floating-hearts span:nth-child(6) { left: 85%; animation-delay: 5s; }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.1em;
+        }
+
+        footer .heart {
+            color: #ff6b6b;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .message-section h2,
+            .memories-section h2 {
+                font-size: 2em;
+            }
+
+            .message-box {
+                padding: 25px;
+                font-size: 1em;
+            }
+
+            .memories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="birthday-emoji">🎂</div>
+            <h1>Happy Birthday!</h1>
+            <p>To the most amazing person in my life</p>
+        </div>
+        <a href="#message" class="scroll-btn">Read My Message ↓</a>
+    </section>
+
+    <!-- Birthday Message Section -->
+    <section id="message" class="message-section">
+        <h2>A Special Message For You 💝</h2>
+        <div class="message-box">
+            <p>
+                Happy Birthday Maya! 🎉
+            </p>
+            <p style="margin-top: 20px;">
+                Today is all about celebrating you — the most amazing person in my life. Having you beside me feels like the biggest
+                blessing, and every moment with you becomes a memory I want to hold onto forever. You bring joy into my ordinary days,
+                warmth into my heart, and a smile to my face without even trying. Thank you for being you, and for making my world more
+                beautiful just by being in it
+            <p style="margin-top: 20px;">
+                Thank you for being my best friend, my partner, and my favorite person. Here's to another year of amazing adventures, beautiful memories, and endless love together!
+            </p>
+            <p style="margin-top: 20px; font-weight: bold; color: #667eea;">
+                I love you more than words can say! ❤️
+            </p>
+        </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section class="memories-section">
+        <h2>Our Beautiful Memories Together 📸</h2>
+        <div class="memories-grid">
+            <div class="memory-card">
+                <div class="memory-image">
+                    <!-- Replace 'your-image-1.jpg' with your actual image filename -->
+                    <img src="2.png" alt="First message">
+                    <!-- If you don't have an image yet, the icon below will show -->
+                    <!-- <div class="placeholder-icon">🌟</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>First message</h3>
+                    <p>I still remember 28th August 2021 — the day you first messaged me “hy.” That simple message started everything, and I
+                    will never forget that date. It will always be special to me.</p>
+                    <div class="memory-date">A day I'll cherish forever</div>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="4.jpeg" alt="First Photo">
+                    <!-- <div class="placeholder-icon">🎭</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>First photo</h3>
+                    <p>This is the first photo you ever sent me. We had just started talking on Messenger, but neither of us had a profile
+                    picture. So we asked each other for a photo, and you sent me this one.</p>
+                    <div class="memory-date">We exchange photo with each other </div>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="1.jpeg" alt="First call memory">
+                    <!-- <div class="placeholder-icon">🌅</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>First call memory</h3>
+                    <p>After talking for a long time, we finally started calling each other. I was really shy, but you loved talking on calls
+                    and kept asking me, so I said yes. We began with audio calls, and one day you asked me to turn on the video. I asked you
+                    the same, and when you turned it on, I took a screenshot — and that’s this photo.</p>
+                    <div class="memory-date">Video call moment</div>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="3.png" alt="Our best photo">
+                    <!-- <div class="placeholder-icon">🎢</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>Our best photo</h3>
+                    <p>After finishing college, we went to the Funpark and took this photo. I think it was the first time we went out together
+                    just to have fun, and this picture became one of our best memories.</p>
+                    <div class="memory-date">We have a lot of fun their</div>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="5.png" alt="First birthday together">
+                    <!-- <div class="placeholder-icon">🍕</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>First birthday together</h3>
+                    <p>On your birthday, we didn’t have any plans at first. But at college, you asked me if I was free, and I said yes. Later,
+                    we went to the restaurant with your friend and celebrated your birthday together.</p>
+                    <div class="memory-date">I was shy, but happy.</div>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="6.jpg" alt="Gift">
+                    <!-- <div class="placeholder-icon">🎵</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>Gift</h3>
+                    <p>After you went to Australia, you sent me a box of chocolates as a surprise. There were so many chocolates and a rose—the
+                    first rose you ever gave me. I was so happy.</p>
+                    <div class="memory-date">Suprise gift from you</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <h2>Our Special Moments 🎬</h2>
+        <p class="video-subtitle">A video filled with love and memories</p>
+        <div class="video-container">
+            <video controls>
+                <source src="1.mp4" type="video/mp4">
+                Your browser doesn't support the video tag.
+            </video>
+            <div class="video-description">
+                <p>
+                    This video captures some of our most precious moments together. Every second reminds me of why I fell in love with you and why I fall deeper every single day. 💕
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="memories-section">
+        <h2>Our Beautiful Memories Together 📸</h2>
+        <div class="memories-grid">
+            <div class="memory-card">
+                <div class="memory-image">
+                    <!-- Replace 'your-image-1.jpg' with your actual image filename -->
+                    <img src="2.png" alt="First message">
+                    <!-- If you don't have an image yet, the icon below will show -->
+                    <!-- <div class="placeholder-icon">🌟</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>First message</h3>
+                    <p>I still remember 28th August 2021 — the day you first messaged me “hy.” That simple message started
+                        everything, and I
+                        will never forget that date. It will always be special to me.</p>
+                    <div class="memory-date">A day I'll cherish forever</div>
+                </div>
+            </div>
+    
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="4.jpeg" alt="First Photo">
+                    <!-- <div class="placeholder-icon">🎭</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>First photo</h3>
+                    <p>All those cozy nights watching movies together, sharing popcorn, and you pretending you weren't
+                        crying during the emotional scenes! 😊</p>
+                    <div class="memory-date">Every weekend together</div>
+                </div>
+            </div>
+    
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="1.jpeg" alt="First call memory">
+                    <!-- <div class="placeholder-icon">🌅</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>First call memory</h3>
+                    <p>That beautiful evening at the beach when we watched the sunset together. The sky was painted in
+                        oranges and pinks, but I couldn't take my eyes off you.</p>
+                    <div class="memory-date">A perfect moment in time</div>
+                </div>
+            </div>
+    
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="3.png" alt="Our best photo">
+                    <!-- <div class="placeholder-icon">🎢</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>Our best photo</h3>
+                    <p>Remember when we went to the amusement park? You held my hand on every ride, even the scary ones.
+                        That's when I knew you'd always be there for me.</p>
+                    <div class="memory-date">Thrills and laughter</div>
+                </div>
+            </div>
+    
+            <div class="memory-card">`
+                <div class="memory-image">
+                    <img src="5.png" alt="First birthday together">
+                    <!-- <div class="placeholder-icon">🍕</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>First birthday together</h3>
+                    <p>Those random 2 AM conversations about everything and nothing. Ordering pizza at midnight and talking
+                        until sunrise. Simple moments that mean everything.</p>
+                    <div class="memory-date">Our favorite tradition</div>
+                </div>
+            </div>
+    
+            <div class="memory-card">
+                <div class="memory-image">
+                    <img src="6.jpg" alt="Gift">
+                    <!-- <div class="placeholder-icon">🎵</div> -->
+                </div>
+                <div class="memory-content">
+                    <h3>Gift</h3>
+                    <p>That spontaneous dance in the rain when we got caught in the storm. Instead of running for cover, we
+                        laughed and danced. Pure magic!</p>
+                    <div class="memory-date">Spontaneous and perfect</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Final Love Message Section -->
+    <section class="final-message-section">
+        <div class="floating-hearts">
+            <span>💕</span>
+            <span>💖</span>
+            <span>💗</span>
+            <span>💝</span>
+            <span>💞</span>
+            <span>💓</span>
+        </div>
+        <div class="final-message-content">
+            <h2>How Much I Love You ❤️</h2>
+            <div class="love-text">
+                <p>
+                    Words can't fully capture how deeply I love you, but I'll try...
+                </p>
+                <p style="margin-top: 25px;">
+                    You are my sunshine on cloudy days, my comfort when things get tough, and my biggest supporter in everything I do. Loving you is the easiest and most natural thing I've ever done.
+                </p>
+                <p style="margin-top: 25px;">
+                    Every laugh we share, every adventure we take, every quiet moment together - they all remind me how lucky I am to have you in my life. You make me want to be a better person every single day.
+                </p>
+                <p style="margin-top: 25px;">
+                    Thank you for being YOU - for your kindness, your humor, your strength, and your love. I can't wait to create more beautiful memories with you.
+                </p>
+                <p style="margin-top: 25px; font-size: 1.2em; color: #667eea; font-weight: bold;">
+                    I love you more than yesterday, but less than tomorrow. 💕
+                </p>
+            </div>
+            <div class="signature">
+                Forever Yours ✨
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with <span class="heart">❤️</span> for the most special person</p>
+        <p style="margin-top: 10px;">Here's to many more memories together!</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelector('.scroll-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#message').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+
+        // Add entrance animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.memory-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
